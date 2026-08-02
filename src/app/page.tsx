@@ -25,9 +25,9 @@ export async function generateMetadata({
 
   return {
     title:
-      "Discover Buy Sell Browser Extensions: No-1 Chrome Extension Marketplace",
+      "Sell Google Chrome Extension: No-1 Chrome Extension Marketplace",
     description:
-      "Promote Chrome Extensions: No-1 Chrome Extension Marketplace for Buy & Sell Extensions. List your browser extensions free and reach more users for free. Our extension marketplace lets developers submit, manage listings, and showcase Chrome extensions to a growing audience.",
+      "Sell Google Chrome Extension on the #1 browser extension marketplace on the internet. List your browser extensions free and reach to real extension buyers for free. Submit, Approval, Sell. Hassle Free process",
     alternates: { canonical: await canonicalUrl(canonicalPath) },
   };
 }
