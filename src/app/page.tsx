@@ -315,12 +315,11 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
           </p>
 
           <h1 className="mx-auto mt-8 max-w-4xl text-balance text-4xl font-black leading-[1.08] tracking-tight text-zinc-950 sm:text-5xl sm:leading-[1.06] lg:text-6xl">
-            Launch, Discover & Grow Browser Extensions
+            Buy & Sell Chrome Extensions
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-zinc-600 sm:text-lg sm:leading-8">
-            Browse, discover, and submit browser extensions in one moderated directory — {SITE_NAME} for Chrome, Firefox,
-            Edge, and more.
+            Buy or Sell browser extensions on the #1 browser extension marketplace. Chrome, Firefox and Edge extensions. Zero broker charges, verified sellers &amp; buyers, manual verification
           </p>
 
           <div className="mx-auto mt-10 flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
