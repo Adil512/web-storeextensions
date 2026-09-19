@@ -330,12 +330,6 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
               Submit your extension
             </Link>
             <Link
-              href="/auth"
-              className="inline-flex h-12 items-center justify-center rounded-xl border border-zinc-300 bg-white px-8 text-sm font-semibold text-zinc-900 shadow-sm transition hover:border-zinc-400 hover:bg-zinc-50"
-            >
-              Sign up free
-            </Link>
-            <Link
               href="#browse"
               className="inline-flex h-12 items-center justify-center px-4 text-sm font-semibold text-zinc-600 underline decoration-zinc-300 underline-offset-4 transition hover:text-zinc-900 hover:decoration-zinc-400 sm:px-6"
             >
