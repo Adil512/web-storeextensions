@@ -89,12 +89,6 @@ export default function AuthPage() {
         <p className="mt-2 text-sm text-zinc-600">
           For extension makers and visitors. Use email/password or continue with Google.
         </p>
-        <p className="mt-3 rounded-xl border border-zinc-100 bg-zinc-50 px-3 py-2 text-xs text-zinc-600">
-          <strong className="text-zinc-800">Platform staff?</strong>{" "}
-          <Link href="/admin/login" className="font-semibold text-orange-600 underline-offset-2 hover:underline">
-            Admin &amp; super admin sign-in
-          </Link>
-        </p>
 
         <form className="mt-6 space-y-4">
           <input
