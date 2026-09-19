@@ -388,63 +388,84 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ p
 
       <HomeLatestApproved listings={listings ?? []} totalCount={totalLatest} currentPage={currentPage} />
 
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
-        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-orange-600">Makers</p>
-            <h2 className="mt-2 text-2xl font-black tracking-tight text-zinc-900 sm:text-3xl">Connect with Developers</h2>
-            <p className="mt-2 text-sm text-zinc-600">Discover top contributors and explore their public profiles.</p>
+      <section className="border-t border-zinc-200/80 bg-white py-10 sm:py-12">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-xl font-black tracking-tight text-zinc-900 sm:text-2xl">Connect with Developers</h2>
+              <p className="mt-1 text-xs text-zinc-500 sm:text-sm">Discover top contributors and explore their public profiles.</p>
+            </div>
+            <Link
+              href="/leaderboard"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-orange-600 transition hover:text-orange-700 sm:text-sm"
+            >
+              <span>View full leaderboard</span>
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
-          <Link href="/leaderboard" className="text-sm font-semibold text-orange-600 hover:text-orange-700">
-            View full leaderboard →
-          </Link>
-        </div>
 
-        {topMakers.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-zinc-300 bg-white px-6 py-12 text-center text-sm text-zinc-600">
-            Top developers will appear here once profiles and listings are active.
-          </div>
-        ) : (
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {topMakers.map((raw, idx) => {
-              const username = raw.username != null ? String(raw.username) : "";
-              const fullName = raw.full_name != null ? String(raw.full_name).trim() : "";
-              const listingCount = Number(raw.listing_count ?? 0);
-              const upvotes = Number(raw.total_upvotes ?? 0);
-              const display = fullName || (username ? `@${username}` : "Member");
-              const initials = (fullName || username || "?").replace(/^@/, "").slice(0, 2).toUpperCase();
-              return (
-                <li key={`${username}-${idx}`} className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-orange-100 to-amber-50 text-sm font-bold text-orange-900">
-                      {initials}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      {username ? (
-                        <Link href={`/u/${username}`} className="truncate text-base font-semibold text-zinc-900 hover:text-orange-700">
+          {topMakers.length === 0 ? (
+            <div className="rounded-xl border border-dashed border-zinc-200 bg-zinc-50/50 px-6 py-8 text-center text-xs text-zinc-500 sm:text-sm">
+              Top developers will appear here once profiles and listings are active.
+            </div>
+          ) : (
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {topMakers.map((raw, idx) => {
+                const username = raw.username != null ? String(raw.username) : "";
+                const fullName = raw.full_name != null ? String(raw.full_name).trim() : "";
+                const listingCount = Number(raw.listing_count ?? 0);
+                const upvotes = Number(raw.total_upvotes ?? 0);
+                const display = fullName || (username ? `@${username}` : "Member");
+                const initials = (fullName || username || "?").replace(/^@/, "").slice(0, 2).toUpperCase();
+
+                const cardContent = (
+                  <div className="group flex items-center justify-between gap-3 rounded-xl border border-zinc-200/90 bg-white px-4 py-3.5 shadow-sm transition hover:border-orange-300 hover:bg-orange-50/20 hover:shadow">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100/80 text-xs font-bold text-orange-900 ring-1 ring-orange-200/70">
+                        {initials}
+                      </div>
+                      <div className="min-w-0">
+                        <p className="truncate text-sm font-bold text-zinc-900 group-hover:text-orange-600">
                           {display}
-                        </Link>
-                      ) : (
-                        <p className="truncate text-base font-semibold text-zinc-900">{display}</p>
-                      )}
-                      <p className="mt-1 text-xs text-zinc-500">{username ? `@${username}` : "No public username"}</p>
+                        </p>
+                        <p className="truncate text-xs text-zinc-400">
+                          {username ? `@${username}` : "No username"}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex shrink-0 items-center gap-3 border-l border-zinc-100 pl-3 text-right">
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Listings</p>
+                        <p className="text-xs font-bold tabular-nums text-zinc-800">
+                          {listingCount.toLocaleString("en-US")}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Upvotes</p>
+                        <p className="text-xs font-bold tabular-nums text-orange-600">
+                          {upvotes.toLocaleString("en-US")}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="mt-4 grid grid-cols-2 gap-2 rounded-xl border border-zinc-100 bg-zinc-50/70 p-3 text-sm">
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Extensions</p>
-                      <p className="mt-0.5 font-bold tabular-nums text-zinc-900">{listingCount.toLocaleString("en-US")}</p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">Upvotes</p>
-                      <p className="mt-0.5 font-bold tabular-nums text-zinc-900">{upvotes.toLocaleString("en-US")}</p>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+                );
+
+                return (
+                  <li key={`${username}-${idx}`}>
+                    {username ? (
+                      <Link href={`/u/${username}`} className="block">
+                        {cardContent}
+                      </Link>
+                    ) : (
+                      cardContent
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
       </section>
 
       <HomeCta />

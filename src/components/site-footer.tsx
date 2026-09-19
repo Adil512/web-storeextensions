@@ -34,8 +34,7 @@ export default function SiteFooter() {
               {SITE_NAME}
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-600">
-              A curated browser extension directory for Chrome, Firefox, and Edge. Discover top extensions by category,
-              explore developer profiles, and submit your extension to reach more users.
+              Buy &amp; Sell your Browser Extensions. List your Chrome Extension today for free.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link

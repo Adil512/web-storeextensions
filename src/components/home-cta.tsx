@@ -7,9 +7,8 @@ export default function HomeCta() {
         <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-orange-500/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-amber-400/15 blur-3xl" />
         <div className="relative">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-orange-300/90">Ready to ship</p>
-          <h2 className="mt-3 text-2xl font-black tracking-tight text-white sm:text-3xl md:text-4xl">
-            List your extension and reach real users today
+          <h2 className="text-2xl font-black tracking-tight text-white sm:text-3xl md:text-4xl">
+            List your extension and reach real Browser Buyers across the world
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-zinc-300 sm:text-base">
             Sign in to submit your product, build your maker profile, and get reviewed for the public directory.
